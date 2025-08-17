@@ -51,7 +51,7 @@ public class PetShop {
         estoque.add(new Produto("Ração para Cães - 1kg", 25.50));
         estoque.add(new Produto("Ração para Gatos - 1kg", 22.00));
         estoque.add(new Produto("Brinquedo Mordedor", 15.75));
-        estoque.add(new Produto("Coleira Ajustável", 35.00));
+        estoque.add(new Produto("Coleira Antipulgas", 35.00));
         estoque.add(new Produto("Shampoo para Pets", 18.90));
     }
 

@@ -18,8 +18,8 @@ public class Agendamento {
         System.out.println("Serviço: " + servico);
         System.out.println("Nome do Pet: " + nomePet);
         System.out.println("Nome do Dono: " + nomeDono);
-        System.out.println("Data: " + data);
-        System.out.println("Hora: " + hora);
+        System.out.println("Data do agendamento: " + data);
+        System.out.println("Horário do agendamento: " + hora);
         System.out.println("-------------------------------\n");
     }
 }
