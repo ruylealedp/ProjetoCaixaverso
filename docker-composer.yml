@@ -3,7 +3,7 @@ services:
     image: postgres:15
     container_name: postgres
     environment:
-      - POSTGRES_DB=petshopada
+      - POSTGRES_DB=adapetshop
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=12345678
     ports:
