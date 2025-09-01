@@ -1,78 +1,92 @@
-# projetocaixaverso
+# Projeto Final - Introdução o Quarkus
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+Este projeto tem como objetivo a construção de uma API REST utilizando o framework Quarkus API REST utilizando o framework Quarkus. A aplicação deve permitir o cadastro e manutenção de registros em
+uma base de dados, implementando as operações básicas de um CRUD completo.
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+---
 
-## Running the application in dev mode
+## ✅ Objetivos do Projeto
+```
+- A API deve conter os seguintes endpoints para pelo menos uma entidade principal uma entidade principal:
+- Método Método Rota Rota Descrição Descrição
+- GET /{entidade} Retorna todos os registros
+- GET /{entidade}/{id} Retorna um registro por ID
+- POST /{entidade} Cria um novo registro
+- PUT /{entidade}/{id} Atualiza completamente completamente um registro
+- PATCH /{entidade}/{id} Atualiza parcialmente parcialmente um registro
+⚠️ Substitua {entidade} pelo nome do recurso escolhido no projeto (ex: livros, produtos, etc).)
+```
+---
 
-You can run your application in dev mode that enables live coding using:
+## 📂 Estrutura do Projeto
+```
+src/main/java/org/acme  
++-- dto/                -> Objetos de transferência de dados
++-- entity/             -> Entidades JPA
++-- exception/          -> Tratamento de Erros
++-- repository/         -> Acesso a Dados(Panache)
++-- controller/           -> Endpoints REST 
++-- services/           -> Regras de negócio
+```
+---
+## ⚙️ Como Rodar o Projeto
 
-```shell script
-./mvnw quarkus:dev
+### 1. Pré-requisitos
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [Java 21 (GraalVM ou OpenJDK)](https://www.graalvm.org/downloads/#)
+- [Maven](https://maven.apache.org/)
+
+### 2. Subir banco de dados, pgadmin e emulador do eventHubs
+```bash
+docker-compose up -d
+```
+### 3. Rodar aplicação Quarkus em dev
+```bash
+# No diretório do projeto
+mvn quarkus:dev
+```
+A aplicação estará disponível em: http://localhost:8080
+
+### 4. Acessando o PGAdmin
+- Acesse http://localhost:5050/
+- Entre com as seguintes credenciais
+- Email: admin@admin.com
+- Senha: admin
+- Clique em Add New
+- Adicione o nome da sua conexão: adapetshop
+- Na aba Connection insira:
+    - Host name/address: ada_postgres
+    - Port: 5432
+    - Username: postgres
+    - Password: 12345678
+- Ainda na mesma aba, clique em Save
+
+---
+## 📌 Endpoints Principais
+
+### Documentação Swagger
+```
+http://localhost:8080/swagger-ui
 ```
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
-
-## Packaging and running the application
-
-The application can be packaged using:
-
-```shell script
-./mvnw package
+### Manipulação da Entidade de Pet
+GET /ada-petshop/v1/pet
 ```
-
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
-
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
-
-If you want to build an _über-jar_, execute the following command:
-
-```shell script
-./mvnw package -Dquarkus.package.jar.type=uber-jar
+http://localhost:8080/ada-petshop/v1/pet
 ```
-
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
-
-## Creating a native executable
-
-You can create a native executable using:
-
-```shell script
-./mvnw package -Dnative
+POST /ada-petshop/v1/pet
 ```
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
-
-```shell script
-./mvnw package -Dnative -Dquarkus.native.container-build=true
+http://localhost:8080/ada-petshop/v1/pet
 ```
-
-You can then execute your native executable with: `./target/projetocaixaverso-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
-
-## Related Guides
-
-- REST ([guide](https://quarkus.io/guides/rest)): A Jakarta REST implementation utilizing build time processing and Vert.x. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it.
-- REST Jackson ([guide](https://quarkus.io/guides/rest#json-serialisation)): Jackson serialization support for Quarkus REST. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it
-- Hibernate ORM with Panache ([guide](https://quarkus.io/guides/hibernate-orm-panache)): Simplify your persistence code for Hibernate ORM via the active record or the repository pattern
-- JDBC Driver - PostgreSQL ([guide](https://quarkus.io/guides/datasource)): Connect to the PostgreSQL database via JDBC
-
-## Provided Code
-
-### Hibernate ORM
-
-Create your first JPA entity
-
-[Related guide section...](https://quarkus.io/guides/hibernate-orm)
-
-[Related Hibernate with Panache section...](https://quarkus.io/guides/hibernate-orm-panache)
-
-
-### REST
-
-Easily start your REST Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+GET /ada-petshop/v1/pet/{id}
+```
+http://localhost:8080/ada-petshop/v1/pet/{id}
+```
+PUT /ada-petshop/v1/pet/{id}
+```
+http://localhost:8080/ada-petshop/v1/pet/{id}
+```
+PATCH /ada-petshop/v1/pet/{id}
+```
+http://localhost:8080/ada-petshop/v1/pet/{id}
+```
