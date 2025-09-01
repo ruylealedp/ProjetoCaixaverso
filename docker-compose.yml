@@ -1,7 +1,7 @@
 services:
   postgres:
     image: postgres:15
-    container_name: postgres
+    container_name: ada_postgres
     environment:
       - POSTGRES_DB=adapetshop
       - POSTGRES_USER=postgres
@@ -14,7 +14,7 @@ services:
       - petshop-net
   pgadmin:
     image: dpage/pgadmin4:latest
-    container_name: pgadmin
+    container_name: ada_pgadmin
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@admin.com
       - PGADMIN_DEFAULT_PASSWORD=admin

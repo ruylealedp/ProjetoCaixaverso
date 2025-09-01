@@ -9,9 +9,7 @@ import java.math.BigDecimal;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PetDTO {
-    private Long id;
-
+public class AddPetRequestDTO {
     private String nome;
 
     private String especie;
