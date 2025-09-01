@@ -1,8 +1,13 @@
-# Projeto Final - Introdução o Quarkus
+# Projeto Final - Grupo 6
 
 Este projeto tem como objetivo a construção de uma API REST utilizando o framework Quarkus API REST utilizando o framework Quarkus. A aplicação deve permitir o cadastro e manutenção de registros em
 uma base de dados, implementando as operações básicas de um CRUD completo.
-
+---
+## Participantes
+- Adriel Santos Ramos Ferreira
+- Gabriel Franco Barreto Cavalcanti
+- Miguel Costa Anjo
+- Ruy Leal Andrade
 ---
 
 ## ✅ Objetivos do Projeto
